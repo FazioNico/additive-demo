@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { AdditiveService } from 'src/app/services/additive.service';
 
 @Component({
   selector: 'app-list',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
-  constructor() { }
+  items$: Observable<any[]>;
+
+  constructor(
+    private _api: AdditiveService
+  ) { }
 
   ngOnInit(): void {
+    this.items$ = this._api.getAll();
   }
 
 }
