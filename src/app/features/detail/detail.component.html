@@ -1,7 +1,7 @@
 <ion-content>
 
   <ion-card *ngIf="(item$|async) as item">
-    <ion-card-header class="ion-text-center">
+    <ion-card-header class="ion-text-center" >
       <ion-text>
         <p>{{item.id}}</p>
       </ion-text>
@@ -12,7 +12,7 @@
         <p>{{item.type}}</p>
       </ion-text>
       <ion-text>
-        {{item.level}}
+        {{item.level|level}}
       </ion-text>
     </ion-card-content>
   </ion-card>
