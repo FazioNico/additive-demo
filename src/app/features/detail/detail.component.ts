@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { first } from 'rxjs/operators';
+import { IAdditive } from 'src/app/interfaces/additive';
 import { AdditiveService } from 'src/app/services/additive.service';
 
 @Component({
@@ -11,8 +12,8 @@ import { AdditiveService } from 'src/app/services/additive.service';
 })
 export class DetailComponent implements OnInit {
 
-  item$: Observable<any>;
-  itemPromise: any;
+  item$: Observable<IAdditive>;
+  itemPromise: IAdditive;
 
   constructor(
     private _api: AdditiveService,

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { IAdditive } from 'src/app/interfaces/additive';
 import { AdditiveService } from 'src/app/services/additive.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { AdditiveService } from 'src/app/services/additive.service';
 })
 export class ListComponent implements OnInit {
 
-  items$: Observable<any[]>;
+  items$: Observable<IAdditive[]>;
 
   constructor(
     private _api: AdditiveService
