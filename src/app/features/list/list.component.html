@@ -1,8 +1,17 @@
 <ion-content>
-  <p>list works!</p>
   <ion-list>
-    <ion-item [routerLink]="'../detail/' + item.id" *ngFor="let item of (items$|async)">
-      {{item|json}}
+    <ion-item detail="true" detail-icon="caret-forward-circle" [routerLink]="'../detail/' + item.id" *ngFor="let item of (items$|async)">
+      <ion-thumbnail>
+        {{item.id}}
+      </ion-thumbnail>
+      <ion-label>
+        <ion-text>
+          <h3>{{item.name}}</h3>
+        </ion-text>
+        <ion-text >
+          <p>{{item.type}}</p>
+        </ion-text>
+      </ion-label>
     </ion-item>
   </ion-list>
 </ion-content>
