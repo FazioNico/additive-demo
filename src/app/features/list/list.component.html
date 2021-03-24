@@ -1,7 +1,7 @@
 <ion-content>
   <p>list works!</p>
   <ion-list>
-    <ion-item *ngFor="let item of (items$|async)">
+    <ion-item [routerLink]="'../detail/' + item.id" *ngFor="let item of (items$|async)">
       {{item|json}}
     </ion-item>
   </ion-list>

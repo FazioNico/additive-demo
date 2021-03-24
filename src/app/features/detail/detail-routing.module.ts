@@ -3,7 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { DetailComponent } from './detail.component';
 
 const routes: Routes = [
-  {path: '', component: DetailComponent}
+  {path: '', children: [
+    { path: '', redirectTo: 'tabs/list', pathMatch: 'full'},
+    { path: ':id', component: DetailComponent},
+  ]}
 ];
 
 @NgModule({

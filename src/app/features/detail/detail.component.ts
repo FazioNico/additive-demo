@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { first } from 'rxjs/operators';
 import { AdditiveService } from 'src/app/services/additive.service';
@@ -14,16 +15,19 @@ export class DetailComponent implements OnInit {
   itemPromise: any;
 
   constructor(
-    private _api: AdditiveService
+    private _api: AdditiveService,
+    private _route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
-    this.item$ = this._api.getById('100');
-    this.loadPromise()
+    const {id = null} = this._route.snapshot.params;
+    console.log('----->', id);
+    this.item$ = this._api.getById(id);
+    this.loadPromise(id);
   }
 
-  async loadPromise() {
-    this.itemPromise = await this._api.getById('100').pipe(first()).toPromise();
+  async loadPromise(id) {
+    this.itemPromise = await this._api.getById(id).pipe(first()).toPromise();
   }
 
 }
