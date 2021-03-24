@@ -1,1 +1,14 @@
-<p>search works!</p>
+<ion-content>
+  <ion-grid fixed="true">
+    <ion-row class="ion-justify-content-center ion-align-items-center ion-text-center">
+      <ion-col>
+        <p>demo color SCSS</p>
+        <ion-input #searchInput type="text" value=""></ion-input>
+        <ion-button 
+            color="custom"
+            [disabled]="searchInput?.value?.length <= 2"
+            [routerLink]="'../detail/' + searchInput?.value?.toString()">search</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

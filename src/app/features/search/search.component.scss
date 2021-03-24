@@ -1,0 +1,13 @@
+
+:host {
+  background: blue;
+}
+ion-content {
+  --background: transparent;
+}
+ion-grid, ion-row {
+  height: 100%;
+}
+p {
+  color: var(--ion-color-custom);
+}
