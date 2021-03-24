@@ -1,0 +1,12 @@
+ion-item {
+  --padding-start: 0
+}
+ion-thumbnail {
+  height: 100%;
+  display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+}

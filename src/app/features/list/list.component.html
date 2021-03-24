@@ -1,7 +1,11 @@
 <ion-content>
-  <ion-list>
-    <ion-item detail="true" detail-icon="caret-forward-circle" [routerLink]="'../detail/' + item.id" *ngFor="let item of (items$|async)">
-      <ion-thumbnail>
+  <ion-list class="ion-no-padding">
+    <ion-item 
+        detail="true" 
+        detail-icon="caret-forward-circle" 
+        [routerLink]="'../detail/' + item.id" 
+        *ngFor="let item of (items$|async)">
+      <ion-thumbnail class="ion-no-margin">
         {{item.id}}
       </ion-thumbnail>
       <ion-label>
