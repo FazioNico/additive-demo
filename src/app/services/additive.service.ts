@@ -31,6 +31,7 @@ export class AdditiveService {
           ]
         });
         await ionAlert.present();
+        const data = await ionAlert.onDidDismiss();
         throw err;
       })
     );
