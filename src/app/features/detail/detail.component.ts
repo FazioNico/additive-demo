@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { first } from 'rxjs/operators';
 import { IAdditive } from 'src/app/interfaces/additive';
 import { AdditiveService } from 'src/app/services/additive.service';
+import { WikiService } from './services/wiki.service';
 
 @Component({
   selector: 'app-detail',
@@ -13,17 +14,20 @@ import { AdditiveService } from 'src/app/services/additive.service';
 export class DetailComponent implements OnInit {
 
   item$: Observable<IAdditive>;
+  itemDesc$: Observable<any>;
   itemPromise: IAdditive;
 
   constructor(
     private _api: AdditiveService,
-    private _route: ActivatedRoute
+    private _route: ActivatedRoute,
+    private _wiki: WikiService
   ) { }
 
   ngOnInit(): void {
     const {id = null} = this._route.snapshot.params;
     console.log('----->', id);
     this.item$ = this._api.getById(id);
+    this.itemDesc$ = this._wiki.getById(id);
     this.loadPromise(id);
   }
 

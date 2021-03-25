@@ -17,4 +17,11 @@
     </ion-card-content>
   </ion-card>
 
+  <ion-card *ngIf="(itemDesc$|async) as desc">
+    <ion-card-content>
+      <ion-text [innerHTML]="desc?.extract_html">
+      </ion-text>
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>
