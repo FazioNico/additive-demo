@@ -4,7 +4,7 @@
         detail="true" 
         detail-icon="caret-forward-circle" 
         [routerLink]="'../detail/' + item.id" 
-        *ngFor="let item of (items$|async)">
+        *ngFor="let item of (items$|async)?.slice(min, max)">
       <ion-thumbnail class="ion-no-margin">
         {{item.id}}
       </ion-thumbnail>
@@ -18,4 +18,12 @@
       </ion-label>
     </ion-item>
   </ion-list>
+
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
 </ion-content>
