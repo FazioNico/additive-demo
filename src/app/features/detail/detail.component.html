@@ -1,3 +1,7 @@
+<ion-header>
+  <app-header title="{{(item$|async)?.name}}"></app-header>
+</ion-header>
+
 <ion-content>
 
   <ion-card *ngIf="(item$|async) as item">
@@ -19,8 +23,7 @@
 
   <ion-card *ngIf="(itemDesc$|async) as desc">
     <ion-card-content>
-      <ion-text [innerHTML]="desc?.extract_html">
-      </ion-text>
+      <ion-text [innerHTML]="desc?.extract_html"></ion-text>
     </ion-card-content>
   </ion-card>
 
