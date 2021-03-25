@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ListRoutingModule } from './list-routing.module';
 import { ListComponent } from './list.component';
 import { IonicModule } from '@ionic/angular';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { IonicModule } from '@ionic/angular';
   imports: [
     CommonModule,
     ListRoutingModule,
-    IonicModule
+    IonicModule,
+    SharedModule
   ]
 })
 export class ListModule { }
