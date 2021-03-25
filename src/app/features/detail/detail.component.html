@@ -1,14 +1,14 @@
 <ion-content>
 
   <ion-card *ngIf="(item$|async) as item">
-    <ion-card-header class="ion-text-center" >
+    <ion-card-header [color]="item.level|color" class="ion-text-center" >
       <ion-text>
         <p>{{item.id}}</p>
       </ion-text>
     </ion-card-header>
     <ion-card-content class="ion-text-center">
       <ion-text>
-        <h1>{{item.name}}</h1>
+        <h1 class="ion-padding-top">{{item.name}}</h1>
         <p>{{item.type}}</p>
       </ion-text>
       <ion-text>
