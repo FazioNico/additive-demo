@@ -10,3 +10,16 @@ ion-thumbnail {
 	align-items: center;
 	align-content: center;
 }
+
+ion-thumbnail.ion-color-success {
+	background: var(--ion-color-success);
+}
+ion-thumbnail.ion-color-warning {
+	background: var(--ion-color-warning);
+}
+ion-thumbnail.ion-color-orange {
+	background: var(--ion-color-orange);
+}
+ion-thumbnail.ion-color-danger {
+	background: var(--ion-color-danger);
+}

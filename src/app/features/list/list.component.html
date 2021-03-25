@@ -5,10 +5,10 @@
         detail-icon="caret-forward-circle" 
         [routerLink]="'../detail/' + item.id" 
         *ngFor="let item of (items$|async)?.slice(min, max)">
-      <ion-thumbnail class="ion-no-margin">
+      <ion-thumbnail [className]="'ion-no-margin ion-color-' + (item?.level|color)">
         {{item.id}}
       </ion-thumbnail>
-      <ion-label>
+      <ion-label class="ion-padding-start">
         <ion-text>
           <h3>{{item.name}}</h3>
         </ion-text>
