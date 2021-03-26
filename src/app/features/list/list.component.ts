@@ -30,6 +30,7 @@ export class ListComponent implements OnInit {
 
   filterBy($event)  {
     const {detail:  {value = null} = {}} = $event;
+    // syntaxiquement identique: ({detail:  {value = null} = {}} = $event) === ($event.detail.value);
     this.items$ = this._api.getAll().pipe(
       map(items =>  {
         if (value === null) return items;
