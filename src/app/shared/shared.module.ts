@@ -4,7 +4,6 @@ import { PIPES } from './pipes';
 import { COMPONENTS } from './components';
 import { IonicModule } from '@ionic/angular';
 
-
 @NgModule({
   declarations: [
     ...PIPES,
