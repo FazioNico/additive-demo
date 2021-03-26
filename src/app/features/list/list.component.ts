@@ -28,4 +28,13 @@ export class ListComponent implements OnInit {
     $event.target.complete();
   }
 
+  filterBy($event)  {
+    const {detail:  {value = null} = {}} = $event;
+    this.items$ = this._api.getAll().pipe(
+      map(items =>  {
+        if (value === null) return items;
+        return items.filter(i => i.level === value);
+      })
+    );
+  }
 }

@@ -1,4 +1,10 @@
 <ion-content>
+  <ion-segment [value]="null" (ionChange)="filterBy($event)">
+    <ion-segment-button [value]="null">*</ion-segment-button>
+    <ion-segment-button [value]="0">0</ion-segment-button>
+    <ion-segment-button [value]="1">1</ion-segment-button>
+    <ion-segment-button [value]="2">2</ion-segment-button>
+  </ion-segment>
   <ion-list class="ion-no-padding">
     <ion-item 
         detail="true" 
