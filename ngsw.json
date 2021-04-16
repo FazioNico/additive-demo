@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1618567131867,
+  "timestamp": 1618567696776,
   "index": "/additive-demo/index.html",
   "assetGroups": [
     {
@@ -101,7 +101,21 @@
       "patterns": []
     }
   ],
-  "dataGroups": [],
+  "dataGroups": [
+    {
+      "name": "additive-data",
+      "patterns": [
+        "\\/additive-demo\\/\\.\\/assets\\/db\\.json"
+      ],
+      "strategy": "performance",
+      "maxSize": 10,
+      "maxAge": 60000,
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "version": 1
+    }
+  ],
   "hashTable": {
     "/additive-demo/10.6e680c11cf4467f44309.js": "b4cc4747114958787606fe33ecd987589e0ca41d",
     "/additive-demo/11.8b73e0579512937bdc55.js": "dab45e5c2d3a73e896305c77fd129fac6701e58c",
