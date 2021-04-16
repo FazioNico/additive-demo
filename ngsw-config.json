@@ -26,5 +26,16 @@
         ]
       }
     }
+  ],
+  "dataGroups": [
+    {
+      "name": "additive-data",
+      "urls": ["./assets/db.json"],
+      "cacheConfig": {
+        "maxSize": 10,
+        "maxAge": "1m",
+        "strategy": "performance"
+      }
+    }
   ]
 }
