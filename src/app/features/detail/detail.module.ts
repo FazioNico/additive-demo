@@ -6,6 +6,7 @@ import { DetailComponent } from './detail.component';
 import { IonicModule } from '@ionic/angular';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { WikiService } from './services/wiki.service';
+import { FavService } from './services/fav.service';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { WikiService } from './services/wiki.service';
     DetailComponent
   ],
   providers: [
-    WikiService
+    WikiService,
+    FavService
   ],
   imports: [
     CommonModule,

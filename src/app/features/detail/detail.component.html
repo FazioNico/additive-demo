@@ -11,6 +11,9 @@
       </ion-text>
     </ion-card-header>
     <ion-card-content class="ion-text-center">
+      <ion-button (click)="toggle(item)">
+        <ion-icon [name]="(isFav$|async) ? 'heart' : 'heart-outline'"></ion-icon>
+      </ion-button>
       <ion-text>
         <h1 class="ion-padding-top">{{item.name}}</h1>
         <p>{{item.type}}</p>
