@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsComponent } from './tabs.component';
+import { AngularFireAuthGuard, canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
+
+const redirectUnauthorizedUser = () => redirectUnauthorizedTo(['tabs/search']);
 
 const routes: Routes = [
   {path: '', component: TabsComponent, children: [
@@ -18,6 +21,13 @@ const routes: Routes = [
       path: 'detail',
       loadChildren: () => import('../detail/detail.module')
                           .then(m => m.DetailModule)
+    },
+    {
+      path: 'profil',
+      ...canActivate(redirectUnauthorizedUser),
+      // canActivate: [AngularFireAuthGuard],
+      loadChildren: () => import('../user-profil/user-profil.module')
+                          .then(m => m.UserProfilModule)
     },
     {
       path: '',
