@@ -25,8 +25,9 @@ export class HeaderComponent {
     await ionModal.present();
   }
 
-  login() {
-    this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+  async login() {
+    const {user = {}} = await this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+    console.log('user data-> ', user);
   }
 
   logout() {
