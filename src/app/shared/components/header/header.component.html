@@ -7,5 +7,9 @@
     <ion-button (click)="openModal()">
       <ion-icon name="information-circle-outline"></ion-icon>
     </ion-button>
+
+    <ion-button (click)="login()" *ngIf="!(auth.user|async)?.uid">login</ion-button>
+    <ion-button (click)="logout()" *ngIf="!!(auth.user|async)?.uid">logout</ion-button>
+
   </ion-buttons>
 </ion-toolbar>
