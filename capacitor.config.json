@@ -1,0 +1,13 @@
+{
+  "appId": "ch.nicolasfazio.additivedemo21",
+  "appName": "additive app",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "cordova": {}
+}

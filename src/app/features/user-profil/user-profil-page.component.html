@@ -1,3 +1,7 @@
 <ion-content>
   <p>user-profil-page works!</p>
+
+  <ion-button (click)="takePict()">take picture</ion-button>
+
+  <ion-img *ngIf="avatarURL" [src]="avatarURL"></ion-img>
 </ion-content>
