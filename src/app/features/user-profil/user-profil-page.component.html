@@ -3,5 +3,6 @@
 
   <ion-button (click)="takePict()">take picture</ion-button>
 
-  <ion-img *ngIf="avatarURL" [src]="avatarURL"></ion-img>
+  <ion-img *ngIf="!!avatarURL" [src]="avatarURL"></ion-img>
+  <ion-button  *ngIf="!!avatarURL" (click)="savePict()">save picture</ion-button>
 </ion-content>

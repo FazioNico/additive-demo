@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFireStorage } from '@angular/fire/storage';
 import { Camera, CameraResultType } from '@capacitor/core';
+import { finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-user-profil-page',
@@ -8,9 +11,12 @@ import { Camera, CameraResultType } from '@capacitor/core';
 })
 export class UserProfilPageComponent implements OnInit {
 
-  avatarURL: string = null;
+  avatarURL: any = null;
 
-  constructor() { }
+  constructor(
+    private _storage: AngularFireStorage,
+    private _auth: AngularFireAuth
+  ) { }
 
   ngOnInit(): void {
   }
@@ -22,6 +28,25 @@ export class UserProfilPageComponent implements OnInit {
       resultType: CameraResultType.Uri
     });
     const imageUrl = image.webPath;
-    console.log('--->', imageUrl);
+    this.avatarURL = imageUrl;
+  }
+
+  async savePict() {
+    const blob = await this._readAsBlob(this.avatarURL);
+    const timeStamp = Date.now();
+    const {uid = null} = await this._auth.currentUser;
+    const ref = this._storage.ref(timeStamp + '_' + uid + '.jpeg');
+    const task = ref.put(blob);
+    await task.then();
+    const url = await ref.getDownloadURL().toPromise();
+    console.log(url);
+  }
+
+  private async _readAsBlob(webPath: string) {
+    // Fetch the file and read as a blob
+    const response = await fetch(webPath);
+    const blob = await response.blob();
+    return blob;
   }
 }
+
